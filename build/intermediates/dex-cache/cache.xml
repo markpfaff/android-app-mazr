@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/markp/.android/build-cache/2bd436f2c5e239fd7a1971add4c24eed8242768a/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9b00f67069380c0f05beafe54e714a393b89a9e5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/markp/.android/build-cache/b7640471774c11f27c80c5fc0748c9041c01f151/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_229226312f1bdc1c2126c27b445b5679722b3084/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/markp/.android/build-cache/8f76ce4807f842f683b4fd7bd61d6205b59597a4/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f874b5e4d183448a73cfc7201482a9e17e3be509/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/markp/.android/build-cache/13c2dcc3faa1cd339ba9cad88166577a39fb841b/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_216de4c566c14968532e6ff21fbff9181ab369bd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_39e739de9a9fefa41607e27b29b0d8cfa08fa551/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8a0b4e5dd57b710ca709d4e6bd0005349a8d4a75">
+        <dex dex="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_3a673aef8d99beab5a7255a03b7c0bf9dba45268/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/markp/.android/build-cache/85d7c4e27b920c884aa83d91e14e16f35137368d/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_de28b9debc9de43440c04d94160f58579994610b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/markp/.android/build-cache/03f3321e59a295f6d93e9184e88f491a6cfd7fed/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a98409750d30870aedac033436c39799d5729d02/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/markp/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.2_04ffc0dd5615f3c8c01eed0a4684ad7f70efe2f9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/markp/.android/build-cache/4de8aad00f1022e8e3548aabac16085fc5366ca1/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_88a095b4f9d808aec92a96bdcf6371c67f874943/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/markp/.android/build-cache/fa5ffd60c07e62486c3a6afe00058f34f228d2cc/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_202219a0b41928886eaeb72d1fe596b95a5acf00/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/markp/.android/build-cache/eaba966322968dc61491c4fcc021a3fdddace203/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_378faf525666d126098f9d0aad9d2fb88c329417/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/markp/.android/build-cache/9254fda2162f6d1740295b9c0fca6bac474f6644/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2c165f204b80e67a9951ba451a9cc4b38cd51c60/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/markp/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.3.1_26b703812bfd56c995a6bb7c2e122bedcca8d5d9/classes.dex" />
+    </item>
+
+</items>
