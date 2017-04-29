@@ -1,0 +1,6 @@
+<application>
+  <component name="ExternalResourceManagerImpl">
+    <resource url="http://schemas.android.com/apk/res-auto" location="$APPLICATION_HOME_DIR$/jre/jdk/Contents/Home/jre/lib/resources.jar" />
+    <resource url="http://schemas.android.com/tools" location="$APPLICATION_HOME_DIR$/jre/jdk/Contents/Home/lib/tools.jar" />
+  </component>
+</application>
