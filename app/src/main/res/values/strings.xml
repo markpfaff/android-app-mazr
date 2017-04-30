@@ -2,4 +2,7 @@
     <string name="app_name">mazr</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
+    <string name="button_info">Info</string>
+    <string name="title_activity_detail">Detail</string>
+    <string name="title_activity_recycler">RecyclerView</string>
 </resources>
