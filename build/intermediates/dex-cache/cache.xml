@@ -3,29 +3,11 @@
 
     <item
         is-multidex="true"
-        jar="/Users/markp/.android/build-cache/82b45cfc422850f5ee7290c60efac74dd5b71fb9/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="95519720620b553f63afc789beba9ad582807f7c">
-        <dex dex="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3e74593c07dbfddbeeb89392cdc5747ce15c7e94/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/markp/.android/build-cache/a1bdcc187810efd8f010072d9d6f21fbbc89aae5/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
-        <dex dex="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0106c04ad68b73e38ec0d0c2891f6cc0058a6a24/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="edb5317699c6b44139c18c35dd5a3aac1f8d1fd8">
+        sha1="fcf119727b7debd2ac9240dee6cf3d627d97718d">
         <dex dex="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_3a673aef8d99beab5a7255a03b7c0bf9dba45268/classes.dex" />
     </item>
     <item
@@ -36,15 +18,6 @@
         revision="25.0.2"
         sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
         <dex dex="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_39e739de9a9fefa41607e27b29b0d8cfa08fa551/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/markp/.android/build-cache/e096b8e7c67583bde4903f2fa48c88724d3e99a1/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
-        <dex dex="/Users/markp/AndroidStudioProjects/mazr/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e0016178fe03e768f6b860408b96011ec520d8c8/classes.dex" />
     </item>
 
 </items>

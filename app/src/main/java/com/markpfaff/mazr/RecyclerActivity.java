@@ -1,10 +1,14 @@
 package com.markpfaff.mazr;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -19,6 +23,31 @@ public class RecyclerActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.Adapter recyclerViewAdapter;
     RecyclerView.LayoutManager recylerViewLayoutManager;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // add menu items to the action bar
+        //getMenuInflater().inflate(R.menu.primary_menu, menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.primary_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item
+
+        switch (item.getItemId()) {
+            case R.id.action_about:
+                startActivity(new Intent(this, AboutActivity.class));
+                return true;
+            case R.id.action_movie_list:
+                startActivity(new Intent(this, RecyclerActivity.class));
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
 
     // array of titles and categories
     String[][] movies =

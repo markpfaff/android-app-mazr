@@ -4,5 +4,11 @@
     <string name="button_send">Send</string>
     <string name="button_info">Info</string>
     <string name="title_activity_detail">Detail</string>
-    <string name="title_activity_recycler">RecyclerView</string>
+    <string name="main_dialog_title">Important Question</string>
+    <string name="title_activity_recycler">Movie List</string>
+    <string name="title_activity_about">About</string>
+    <string name="action_about">About</string>
+    <string name="action_movie_list">Movie List</string>
+    <string name="dialog_yes">Yes?</string>
+    <string name="dialog_no">No?</string>
 </resources>

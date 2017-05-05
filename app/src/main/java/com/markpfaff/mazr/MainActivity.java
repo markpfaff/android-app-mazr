@@ -1,10 +1,18 @@
 package com.markpfaff.mazr;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -32,6 +40,33 @@ public class MainActivity extends AppCompatActivity {
         gridview.setAdapter(new ImageAdapter(this));
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // add menu items to the action bar
+        //getMenuInflater().inflate(R.menu.primary_menu, menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.primary_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item
+
+        switch (item.getItemId()) {
+            case R.id.action_about:
+                startActivity(new Intent(this, AboutActivity.class));
+                return true;
+            case R.id.action_movie_list:
+                startActivity(new Intent(this, RecyclerActivity.class));
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
+
 
     /** Called when the user taps the Send button */
     public void sendMessage(View view) {
@@ -94,6 +129,9 @@ public class MainActivity extends AppCompatActivity {
         if (id==0){
             Intent recycle = new Intent(this, RecyclerActivity.class);
             startActivity(recycle);
+        }else if(id==1){
+            DialogFragment newFragment = new CustomDialogFragment();
+            newFragment.show(getSupportFragmentManager(), "main_dialog");
         }else {
             Toast.makeText(MainActivity.this, "" + id,
                     Toast.LENGTH_SHORT).show();
@@ -120,6 +158,42 @@ public class MainActivity extends AppCompatActivity {
         {
             Log.d(TAG, "button tapped");
             showList(v.getId());
+        }
+    }
+
+//    public void confirmFireMissiles() {
+//        DialogFragment newFragment = new FireMissilesDialogFragment();
+//        newFragment.show(getSupportFragmentManager(), "missiles");
+//    }
+
+    public static class CustomDialogFragment extends DialogFragment {
+        /** The system calls this to get the DialogFragment's layout, regardless
+         of whether it's being displayed as a dialog or an embedded fragment. */
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            // Inflate the layout to use as dialog or embedded fragment
+            return inflater.inflate(R.layout.main_dialog, container, false);
+        }
+
+        /** The system calls this only when creating the layout in a dialog. */
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the Builder class for convenient dialog construction
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage(R.string.main_dialog_title)
+                    .setPositiveButton(R.string.dialog_yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Log.d(TAG, "user answered yes");
+                        }
+                    })
+                    .setNegativeButton(R.string.dialog_no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Log.d(TAG, "user answered no");
+                        }
+                    });
+            // Create the AlertDialog object and return it
+            return builder.create();
         }
     }
 
