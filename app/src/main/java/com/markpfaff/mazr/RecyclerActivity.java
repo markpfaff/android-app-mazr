@@ -1,14 +1,35 @@
 package com.markpfaff.mazr;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.android.volley.Cache;
+import com.android.volley.Network;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.BasicNetwork;
+import com.android.volley.toolbox.DiskBasedCache;
+import com.android.volley.toolbox.HurlStack;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+
+
+import org.json.JSONObject;
+
 /**
  * Created by markp on 4/28/17.
  */
@@ -19,6 +40,31 @@ public class RecyclerActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.Adapter recyclerViewAdapter;
     RecyclerView.LayoutManager recylerViewLayoutManager;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // add menu items to the action bar
+        //getMenuInflater().inflate(R.menu.primary_menu, menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.primary_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item
+
+        switch (item.getItemId()) {
+            case R.id.action_about:
+                startActivity(new Intent(this, AboutActivity.class));
+                return true;
+            case R.id.action_movie_list:
+                startActivity(new Intent(this, RecyclerActivity.class));
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
 
     // array of titles and categories
     String[][] movies =
@@ -79,7 +125,7 @@ public class RecyclerActivity extends AppCompatActivity {
             // Inflate view
             View item = getLayoutInflater().inflate(R.layout.recycler_items, parent,
                     false);
-            
+
             // return new view holder
             ViewHolder viewh = new ViewHolder(item);
             return viewh;
@@ -98,5 +144,33 @@ public class RecyclerActivity extends AppCompatActivity {
         public int getItemCount() {
             return movies.length;
         }
+
     }
+
+    ImageView mImageView;
+    TextView mTxtDisplay = (TextView) findViewById(R.id.json_text);
+    String url = "http://my-json-feed";
+
+    JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                @Override
+                public void onResponse(JSONObject response) {
+                    mTxtDisplay.setText("Response: " + response.toString());
+                }
+            }, new Response.ErrorListener() {
+
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    // TODO Auto-generated method stub
+
+                }
+            });
+
+
+// Access the RequestQueue through your singleton class.
+MySingleton.getInstance(this).addToRequestQueue(jsObjRequest);
+
+
+
+
 }

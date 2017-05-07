@@ -17,28 +17,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginStart="30dp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Author: Mark Pfaff"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="68dp"
-        android:layout_marginLeft="30dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="30dp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="324dp"
-        android:layout_height="71dp"
-        android:text="I'm a front end developer who's experienced in PHP, Wordpress, HTML, CSS and JavaScript who is looking to expand his knowledge of application development in mobile, cloud, and web applications."
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="98dp"
-        android:layout_marginLeft="30dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="30dp" />
-
     <EditText
         android:id="@+id/editText"
         android:layout_width="0dp"
@@ -80,7 +58,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
-
 
 
 </android.support.constraint.ConstraintLayout>
