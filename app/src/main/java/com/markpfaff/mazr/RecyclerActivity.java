@@ -12,7 +12,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.android.volley.Cache;
+import com.android.volley.Network;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.BasicNetwork;
+import com.android.volley.toolbox.DiskBasedCache;
+import com.android.volley.toolbox.HurlStack;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+
+
+import org.json.JSONObject;
+
 /**
  * Created by markp on 4/28/17.
  */
@@ -108,7 +125,7 @@ public class RecyclerActivity extends AppCompatActivity {
             // Inflate view
             View item = getLayoutInflater().inflate(R.layout.recycler_items, parent,
                     false);
-            
+
             // return new view holder
             ViewHolder viewh = new ViewHolder(item);
             return viewh;
@@ -127,5 +144,33 @@ public class RecyclerActivity extends AppCompatActivity {
         public int getItemCount() {
             return movies.length;
         }
+
     }
+
+    ImageView mImageView;
+    TextView mTxtDisplay = (TextView) findViewById(R.id.json_text);
+    String url = "http://my-json-feed";
+
+    JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                @Override
+                public void onResponse(JSONObject response) {
+                    mTxtDisplay.setText("Response: " + response.toString());
+                }
+            }, new Response.ErrorListener() {
+
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    // TODO Auto-generated method stub
+
+                }
+            });
+
+
+// Access the RequestQueue through your singleton class.
+MySingleton.getInstance(this).addToRequestQueue(jsObjRequest);
+
+
+
+
 }
