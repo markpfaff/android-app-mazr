@@ -6,28 +6,22 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.volley.Cache;
-import com.android.volley.Network;
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.BasicNetwork;
-import com.android.volley.toolbox.DiskBasedCache;
-import com.android.volley.toolbox.HurlStack;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.JsonArrayRequest;
 
-
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -67,25 +61,28 @@ public class RecyclerActivity extends AppCompatActivity {
     }
 
     // array of titles and categories
-    String[][] movies =
-            {
-                    { "Star Wars VII", "Sci-Fi" },
-                    { "Star Wars: Rogue One", "Sci-Fi" },
-                    { "Arrival", "Sci-Fi" },
-                    { "Lord of the Rings", "Fantasy" },
-                    { "A Dark Song", "Horror" },
-                    { "The Void", "Horror" },
-                    { "We're Still Here", "Horror" },
-                    { "Big Little Lies", "Drama" },
-                    { "American Gods", "Fantasy" },
-                    { "Chewing Gum", "Comedy" },
-                    { "Santa Clarita Diet", "Comedy/Horror" },
-                    { "Game of Thrones", "Fantasy" },
-                    { "Westworld", "Sci-Fi" },
-                    { "VVitch", "Horror" },
-                    { "Suspiria", "Horror" },
-                    { "The Love Witch", "Horror" }
-            };
+
+//    String[][] movies =
+//            {
+//                    { "Star Wars VII", "Sci-Fi" },
+//                    { "Star Wars: Rogue One", "Sci-Fi" },
+//                    { "Arrival", "Sci-Fi" },
+//                    { "Lord of the Rings", "Fantasy" },
+//                    { "A Dark Song", "Horror" },
+//                    { "The Void", "Horror" },
+//                    { "We're Still Here", "Horror" },
+//                    { "Big Little Lies", "Drama" },
+//                    { "American Gods", "Fantasy" },
+//                    { "Chewing Gum", "Comedy" },
+//                    { "Santa Clarita Diet", "Comedy/Horror" },
+//                    { "Game of Thrones", "Fantasy" },
+//                    { "Westworld", "Sci-Fi" },
+//                    { "VVitch", "Horror" },
+//                    { "Suspiria", "Horror" },
+//                    { "The Love Witch", "Horror" }
+//            };
+
+    String[][] movies = new String[16][2];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,18 +90,72 @@ public class RecyclerActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_ACTION_BAR);
         setContentView(R.layout.activity_recycler);
 
+        final TextView mTxtDisplay = (TextView) findViewById(R.id.json_text);
+        String url = "http://markpfaff.com/projects/ad340/mark2.json";
         context = getApplicationContext();
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview1);
         recylerViewLayoutManager = new LinearLayoutManager(context);
 
         // use linear layout
-        recylerViewLayoutManager = new LinearLayoutManager(this);
+        recylerViewLayoutManager = new LinearLayoutManager(RecyclerActivity.this);
         recyclerView.setLayoutManager(recylerViewLayoutManager);
 
         recyclerViewAdapter = new RecyclerViewAdapter();
         recyclerView.setAdapter(recyclerViewAdapter);
+        String TAG = null;
+        Log.d(TAG, "JSON stuff started");
+
+        JsonArrayRequest jsObjRequest = new JsonArrayRequest(Request.Method.GET, url,new Response.Listener<JSONArray>() {
+
+            @Override
+            public void onResponse(JSONArray response) {
+
+                String TAG = null;
+                Log.d(TAG, "JSON onResponse started");
+                Log.d(TAG, response.toString());
+
+                try {
+//                    int total = response.length();
+                    String moviesJson = "";
+
+                    for (int i = 0; i < response.length(); i++){
+                        JSONObject JO = response.getJSONObject(i);
+                        String titleString = JO.getString("title");
+                        String categoryString = JO.getString("genre");
+                        movies[i][0] = titleString;
+                        movies[i][i] = categoryString;
+                        moviesJson += titleString + " ";
+                        moviesJson += categoryString;
+
+                    }
+                    recyclerViewAdapter.notifyDataSetChanged();
+
+                    mTxtDisplay.setText(moviesJson);
+
+
+                }catch (JSONException e){
+                    e.getStackTrace();
+                }
+
+    //                    titleText.setText("" + titleString);
+    //                    categoryText.setText("" + categoryString);
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+        // Access the RequestQueue through your singleton class.
+        MySingleton.getInstance(this).addToRequestQueue(jsObjRequest);
     }
+
+
+
 
     public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
@@ -146,30 +197,6 @@ public class RecyclerActivity extends AppCompatActivity {
         }
 
     }
-
-    ImageView mImageView;
-    TextView mTxtDisplay = (TextView) findViewById(R.id.json_text);
-    String url = "http://my-json-feed";
-
-    JsonObjectRequest jsObjRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-
-                @Override
-                public void onResponse(JSONObject response) {
-                    mTxtDisplay.setText("Response: " + response.toString());
-                }
-            }, new Response.ErrorListener() {
-
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    // TODO Auto-generated method stub
-
-                }
-            });
-
-
-// Access the RequestQueue through your singleton class.
-MySingleton.getInstance(this).addToRequestQueue(jsObjRequest);
-
 
 
 

@@ -21,6 +21,8 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -34,6 +36,21 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "onCreate() Restoring previous state");
         } else {
             Log.d(TAG, "onCreate() No saved state available");
+        }
+
+        try {
+            if (isConnected() == true) {
+                Toast.makeText(MainActivity.this, "You are connected",
+                        Toast.LENGTH_LONG).show();
+
+            }else {
+                Toast.makeText(MainActivity.this, "You are not connected",
+                        Toast.LENGTH_LONG).show();
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
@@ -196,6 +213,13 @@ public class MainActivity extends AppCompatActivity {
             return builder.create();
         }
     }
+
+    public boolean isConnected() throws InterruptedException, IOException
+    {
+        String command = "ping -c 1 google.com";
+        return (Runtime.getRuntime().exec (command).waitFor() == 0);
+    }
+
 
 
 }
