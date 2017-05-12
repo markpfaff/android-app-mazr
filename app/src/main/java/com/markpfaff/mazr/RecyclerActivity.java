@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.TextView;
 
-import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
@@ -91,7 +90,7 @@ public class RecyclerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recycler);
 
         final TextView mTxtDisplay = (TextView) findViewById(R.id.json_text);
-        String url = "http://markpfaff.com/projects/ad340/mark2.json";
+        String url = "http://markpfaff.com/projects/ad340/mark.json";
         context = getApplicationContext();
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview1);
@@ -106,7 +105,7 @@ public class RecyclerActivity extends AppCompatActivity {
         String TAG = null;
         Log.d(TAG, "JSON stuff started");
 
-        JsonArrayRequest jsObjRequest = new JsonArrayRequest(Request.Method.GET, url,new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsObjRequest = new JsonArrayRequest(url,new Response.Listener<JSONArray>() {
 
             @Override
             public void onResponse(JSONArray response) {
@@ -124,7 +123,7 @@ public class RecyclerActivity extends AppCompatActivity {
                         String titleString = JO.getString("title");
                         String categoryString = JO.getString("genre");
                         movies[i][0] = titleString;
-                        movies[i][i] = categoryString;
+                        movies[i][1] = categoryString;
                         moviesJson += titleString + " ";
                         moviesJson += categoryString;
 
