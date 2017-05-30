@@ -21,11 +21,15 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
+
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     private static final String TAG = MainActivity.class.getSimpleName();
+    private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,6 +153,9 @@ public class MainActivity extends AppCompatActivity {
         }else if(id==1){
             DialogFragment newFragment = new CustomDialogFragment();
             newFragment.show(getSupportFragmentManager(), "main_dialog");
+        }else if(id==2){
+            Intent maps = new Intent(this, MapsActivity.class);
+            startActivity(maps);
         }else {
             Toast.makeText(MainActivity.this, "" + id,
                     Toast.LENGTH_SHORT).show();
@@ -220,6 +227,26 @@ public class MainActivity extends AppCompatActivity {
         return (Runtime.getRuntime().exec (command).waitFor() == 0);
     }
 
+    /**
+     * Check the device to make sure it has the Google Play Services APK. If
+     * it doesn't, display a dialog that allows users to download the APK from
+     * the Google Play Store or enable it in the device's system settings.
+     */
+    private boolean checkPlayServices() {
+        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
+        int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.SUCCESS) {
+            if (apiAvailability.isUserResolvableError(resultCode)) {
+                apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
+                        .show();
+            } else {
+                Log.i(TAG, "This device is not supported.");
+                finish();
+            }
+            return false;
+        }
+        return true;
+    }
 
 
 }

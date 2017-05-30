@@ -53,6 +53,8 @@ public class RecyclerActivity extends AppCompatActivity {
                 return true;
             case R.id.action_movie_list:
                 startActivity(new Intent(this, RecyclerActivity.class));
+            case R.id.option_maps:
+                startActivity(new Intent(this, MapsActivity.class));
             default:
                 return super.onOptionsItemSelected(item);
         }
