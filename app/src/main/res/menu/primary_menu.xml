@@ -9,7 +9,13 @@
         app:showAsAction="never" />
     <item
         android:id="@+id/action_movie_list"
-        android:orderInCategory="100"
+        android:orderInCategory="200"
         android:title="@string/action_movie_list"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/option_maps"
+        android:orderInCategory="300"
+        android:title="@string/option_maps"
+        app:showAsAction="never"/>
 </menu>
